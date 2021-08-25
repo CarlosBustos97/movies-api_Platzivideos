@@ -12,7 +12,8 @@ function moviesApi(app) {
     //destructuramos el query que viene de la ruta
     const { tags } = request.query;
     try {
-      const movies = await moviesService.getMovies({ tags });      
+      const movies = await moviesService.getMovies({ tags });
+      // throw new Error('error getting movies');
       response.status(200).json({
         data: movies,
         message: 'movies listed',
