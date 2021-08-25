@@ -5,7 +5,7 @@ const movieTitleSchema = joi.string().max(80);
 const movieYearSchema = joi.number().min(1888).max(2077);
 const movieCoverSchema = joi.string().uri();
 const movieDescriptionSchema = joi.string().max(300);
-const movieDurationSchema = joi.string().min(1).max(300);
+const movieDurationSchema = joi.number().min(1).max(300);
 const movieContentRaitingSchema = joi.string().max(5);
 const movieSourcegSchema = joi.string().uri();
 const movieTagsSchema = joi.array().items(joi.string().max(50));
@@ -16,7 +16,7 @@ const createMovieSchema = {
   cover: movieCoverSchema.required(),
   description: movieDescriptionSchema.required(),
   duration: movieDurationSchema.required(),
-  contentRaiting: movieContentRaitingSchema.required(),
+  contentRating: movieContentRaitingSchema.required(),
   source: movieSourcegSchema.required(),
   tags: movieTagsSchema,
 };
@@ -27,7 +27,7 @@ const updateMovieSchema = {
   cover: movieCoverSchema,
   description: movieDescriptionSchema,
   duration: movieDurationSchema,
-  contentRaiting: movieContentRaitingSchema,
+  contentRating: movieContentRaitingSchema,
   source: movieSourcegSchema,
   tags: movieTagsSchema,
 };
