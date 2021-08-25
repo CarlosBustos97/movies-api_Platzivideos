@@ -3,7 +3,11 @@ const app = express();
 const { config } = require('./config/index');
 const moviesApi = require('./routes/movies');
 
-const { logErrors, wrapErrors, errorHandler } = require('./utils/middleware/errorHandlers');
+const {
+  logErrors,
+  wrapErrors,
+  errorHandler,
+} = require('./utils/middleware/errorHandlers');
 const notFoundHandler = require('./utils/middleware/notFoundHandler');
 
 //body parser
@@ -19,7 +23,6 @@ app.use(notFoundHandler);
 app.use(errorHandler);
 app.use(wrapErrors);
 app.use(logErrors);
-
 
 app.listen(config.port, function () {
   console.log(`Listening http://localhost:${config.port}`);
